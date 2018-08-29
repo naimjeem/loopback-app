@@ -5,7 +5,7 @@
     "url": "",
     "database": "meetupz",
     "password": "",
-    "name": "mongoDS",
+    "name": "db",
     "user": "",
     "connector": "mongodb"
   }
