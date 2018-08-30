@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import MeetupItem from './MeetupItem';
 
 class Meetupz extends Component {
   constructor() {
@@ -27,9 +28,10 @@ class Meetupz extends Component {
   render() {
     const meetupItems = this.state.meetups.map((meetup, index) => {
       return (
-        <li className="collection-item">{meetup.name}</li>
+        <MeetupItem key={meetup.id} item={meetup} />
       );
     });
+    
     return (
       <div>
         <h1>Meetupz</h1>
