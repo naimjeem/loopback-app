@@ -13,9 +13,9 @@ class App extends Component {
           <Main />
         </div>
         <div className="fixed-action-btn">
-          <Link to="/meetupz/add" className="btn-floating btn-large green">
+          <a className="btn-floating btn-large green modal-trigger" href="#modal1">
             <i className="material-icons">add</i>
-          </Link>
+          </a>
         </div>
       </div>
     );

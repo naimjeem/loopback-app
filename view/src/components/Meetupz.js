@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import MeetupItem from './MeetupItem';
 
+const reqUrl = 'http://localhost:3000/api/meetupzs';
+
 class Meetupz extends Component {
   constructor() {
     super();
@@ -14,7 +16,7 @@ class Meetupz extends Component {
   }
   
   getMeetups() {
-    fetch('http://localhost:3000/api/meetupzs')
+    fetch(reqUrl)
       .then(res => {
          res.json().then(meetups => {
           console.log(meetups);
