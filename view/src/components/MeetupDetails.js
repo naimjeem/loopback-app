@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 const reqUrl = 'http://localhost:3000/api/meetupzs/';
 
@@ -17,7 +17,6 @@ class MeetupDetails extends Component {
   
   getMeetup() {
     const meetupId = this.props.match.params.id;
-    console.log(meetupId);
     fetch(reqUrl + meetupId)
       .then(res => {
          res.json().then(meetupInfo => {
@@ -26,6 +25,20 @@ class MeetupDetails extends Component {
           });
         });
       });
+  }
+
+  onDelete() {
+    const meetupId = this.state.details.id;
+    const options = {
+      method: 'DELETE',
+    };
+    fetch(reqUrl + meetupId, options)
+      .then(res => {
+        console.log(res);
+        console.log(this.props.history);
+        return <Redirect to='/dashboard' />;
+      })
+      .catch(err => console.log(err));
   }
 
   render() {

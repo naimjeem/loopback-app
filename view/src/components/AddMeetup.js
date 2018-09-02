@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 const reqUrl = 'http://localhost:3000/api/meetupzs';
 
@@ -15,13 +15,14 @@ class AddMeetup extends Component {
     };
 
     fetch(reqUrl, options)
-      .then(res => res.json())
+      .then(res => {
+        res.json();
+        // this.props.history.push('/');
+      })
       .then(() => {
-        this.props.history.push('/');
+        return <Redirect to='/dashboard' />
       })
       .catch(err => console.log(err));
-
-      
   }
 
   onSubmit(event) {
